@@ -6,7 +6,7 @@ import Education from './components/Education';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
-
+import myImage from './image/duy.jpg'
 function App() {
   const [isEnglish, setIsEnglish] = useState(true);
 
@@ -15,7 +15,7 @@ function App() {
   };
 
   const profileData = {
-    avatar: '/avatar.jpg', //  Replace with your avatar! (Place in public/)
+    avatar: './image/duy.jpg', //  Replace with your avatar! (Place in public/)
     name: { vi: 'Nguyễn Khánh Duy', en: 'Nguyen Khanh Duy' },
     contact: {
       phone: '0388804547',
@@ -209,7 +209,7 @@ function App() {
 
 
         <div className="p-8">
-          <Header avatar={profileData.avatar} name={profileData.name[isEnglish ? 'en' : 'vi']} contact={profileData.contact} isEnglish={isEnglish} />
+          <Header avatar={myImage} name={profileData.name[isEnglish ? 'en' : 'vi']} contact={profileData.contact} isEnglish={isEnglish} />
           <Objective objective={profileData.objective[isEnglish ? 'en' : 'vi']} isEnglish={isEnglish} />
           <Education education={profileData.education} isEnglish={isEnglish} />
           <Experience experience={profileData.experience} zurichTeam={profileData.zurichTeam} manulifeTeam={profileData.manulifeTeam} isEnglish={isEnglish} />
