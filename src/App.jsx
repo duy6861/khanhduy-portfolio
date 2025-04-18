@@ -48,24 +48,24 @@ function App() {
         vi: {
           company: 'DXC Technology Vietnam',
           position: 'Thực tập sinh',
-          date: 'Tháng 5 2021 - Tháng 10 2023'
+          date: 'Tháng 5 2021 - Tháng 9 2023'
         },
         en: {
           company: 'DXC Technology Vietnam',
           position: 'Intern',
-          date: 'May 2021 - Oct 2023'
+          date: 'May 2021 - Sep 2023'
         }
       },
       {
         vi: {
           company: 'DXC Technology Vietnam',
           position: 'Chuyên viên phân tích lập trình',
-          date: 'Tháng 9 2021 - Tháng 9 2023'
+          date: 'Tháng 9 2021 - Tháng 10 2023'
         },
         en: {
           company: 'DXC Technology Vietnam',
           position: 'Associate Professional Programmer Analyst',
-          date: 'September 2021 - September 2023'
+          date: 'Sep 2021 - Oct 2023'
         }
       }
 
