@@ -196,15 +196,16 @@ function App() {
                 onChange={toggleLanguage}
                 className="hidden"
               />
-              <div className="toggle-container w-20 h-10 bg-gray-300 rounded-full shadow-inner"></div>
-              <div className="toggle-circle absolute top-1 left-1 w-8 h-8 bg-white rounded-full transition-all duration-300 ease-in-out">
+              <div className="toggle-container w-14 h-7 sm:w-16 sm:h-8 md:w-20 md:h-10 bg-gray-300 rounded-full shadow-inner"></div>
+
+              <div className="toggle-circle absolute top-1 left-1 w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-white rounded-full transition-all duration-300 ease-in-out">
                 <div
-                  className={`w-8 h-8 bg-primary rounded-full transition-all duration-300 ease-in-out transform ${isEnglish ? 'translate-x-10' : ''
-                    }`}
+                  className={`bg-primary rounded-full transition-all duration-300 ease-in-out transform w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 ${isEnglish ? 'translate-x-7 sm:translate-x-8 md:translate-x-10' : ''}`}
                 ></div>
               </div>
             </div>
           </label>
+
         </div>
 
 
