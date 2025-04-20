@@ -21,7 +21,7 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
             rel="noopener noreferrer"
             className="hover:text-primary text-primary transition duration-300 text-lg"
           >
-            {contact.website}
+            LinkedIn
           </a>
         </span>
         <span className="text-lg">{isEnglish ? contact.address.en : contact.address.vi}</span>
