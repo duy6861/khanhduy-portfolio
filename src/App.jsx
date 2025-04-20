@@ -20,7 +20,7 @@ function App() {
     contact: {
       phone: '0388804547',
       email: 'duy6861@gmail.com',
-      website: 'https://www.facebook.com/mamut.voi.50/',
+      website: 'https://www.linkedin.com/in/duy-nguy%C3%AA%CC%83n-0a680b235/',
       address: { vi: 'Phường Hiệp Thành, Quận 12, TP.HCM', en: 'Hiep Thanh Ward, District 12, Ho Chi Minh City' }
     },
     objective: {
