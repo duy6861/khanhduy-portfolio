@@ -60,12 +60,12 @@ function App() {
         vi: {
           company: 'DXC Technology Vietnam',
           position: 'Chuyên viên phân tích lập trình',
-          date: 'Tháng 9 2021 - Tháng 10 2023'
+          date: 'Tháng 9 2021 - Tháng 9 2023'
         },
         en: {
           company: 'DXC Technology Vietnam',
           position: 'Associate Professional Programmer Analyst',
-          date: 'Sep 2021 - Oct 2023'
+          date: 'Sep 2021 - Sep 2023'
         }
       }
 
