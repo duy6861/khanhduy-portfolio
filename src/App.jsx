@@ -28,13 +28,15 @@ function App() {
         "Mong muốn làm việc trong môi trường chuyên nghiệp và nâng cao kỹ năng làm việc nhóm.",
         "Háo hức đóng góp vào sự thành công và phát triển lâu dài của công ty.",
         "Không ngừng nâng cao trình độ tiếng Anh để giao tiếp tốt hơn và thăng tiến trong sự nghiệp.",
-        "Đặt mục tiêu thành thạo các kỹ năng lập trình và cập nhật các công nghệ mới nhất."
+        "Đặt mục tiêu thành thạo các kỹ năng lập trình và cập nhật các công nghệ mới nhất.",
+        "Trở thành một lập trình viên full-stack, thành thạo cả công nghệ frontend và backend để xây dựng các ứng dụng web hoàn chỉnh, có khả năng mở rộng và hiệu suất cao."
       ],
       en: [
         "Aspire to work in a professional environment and enhance teamwork skills.",
         "Eager to contribute to the company's success and long-term growth.",
         "Strive to improve English proficiency for better communication and career advancement.",
-        "Aim to master programming skills and stay updated with the latest technologies."
+        "Aim to master programming skills and stay updated with the latest technologies.",
+        "Become a full-stack developer, mastering both frontend and backend technologies to build complete, scalable, and high-performance web applications."
       ]
     },
     education: [
