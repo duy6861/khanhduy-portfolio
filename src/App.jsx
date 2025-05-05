@@ -89,7 +89,7 @@ function App() {
       ],
       programmingLanguages: ['C#', 'Javascript', 'HTML 5', 'CSS', 'C++(Basic)'],
       frameworksAndLibraries: ['ReactJS', 'Next.js (Basic)', 'jQuery'],
-      stateManagementTools: ['Redux', 'Context API', 'Hooks'],
+      stateManagementTools: ['Redux', 'Context API', 'Hooks', 'Zustand'],
       uiFrameworksAndStylingTools: ['Tailwind CSS', 'MUI', 'Bootstrap'],
       backendTechnologies: ['Node.js', '.NET Core (Basic)', 'ASP.NET (Basic)'],
       apiAndDataHandlingTools: ['RESTful API', 'Axios(basic)'],
