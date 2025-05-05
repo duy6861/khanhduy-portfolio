@@ -87,7 +87,7 @@ function App() {
         { name: { vi: 'Tiếng Anh', en: 'English' }, proficiency: { vi: 'Thành thạo chuyên nghiệp', en: 'Professional proficiency' } },
         { name: { vi: 'Tiếng Việt', en: 'Vietnamese' }, proficiency: { vi: 'Bản ngữ', en: 'Native proficiency' } },
       ],
-      programmingLanguages: ['C#', 'Javascript', 'HTML 5', 'CSS', 'C++(Basic)'],
+      programmingLanguages: ['C#', 'Javascript', 'HTML 5', 'CSS', 'C++(Basic)', 'java(Basic)', 'php(Basic)'],
       frameworksAndLibraries: ['ReactJS', 'Next.js (Basic)', 'jQuery'],
       stateManagementTools: ['Redux', 'Context API', 'Hooks', 'Zustand'],
       uiFrameworksAndStylingTools: ['Tailwind CSS', 'MUI', 'Bootstrap'],
