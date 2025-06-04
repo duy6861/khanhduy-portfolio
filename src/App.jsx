@@ -41,8 +41,8 @@ function App() {
     },
     education: [
       {
-        vi: { title: 'Đại học Hoa Sen (Tốt nghiệp)', date: 'Tháng 10 2017 - Tháng 2 2024', major: 'Kỹ thuật phần mềm' },
-        en: { title: 'Hoa Sen University (Graduated)', date: 'Oct 2017 - Feb 2024', major: 'Software Engineering' }
+        vi: { title: 'Đại học Hoa Sen (Tốt nghiệp)', date: '2018 - 2024', major: 'Kỹ thuật phần mềm' },
+        en: { title: 'Hoa Sen University (Graduated)', date: '2018 - 2024', major: 'Software Engineering' }
       }
     ],
     experience: [
