@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
-import './index.css'; // Import Tailwind
+import './index.css';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Objective from './components/Objective';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
-import myImage from './image/duy.jpg'
+import myImage from './image/duy.jpg';
+
 function App() {
   const [isEnglish, setIsEnglish] = useState(true);
-
-  const toggleLanguage = () => {
-    setIsEnglish(!isEnglish);
-  };
+  const toggleLanguage = () => setIsEnglish(!isEnglish);
 
   const profileData = {
-    avatar: './image/duy.jpg', //  Replace with your avatar! (Place in public/)
+    avatar: myImage,
     name: { vi: 'Nguyễn Khánh Duy', en: 'Nguyen Khanh Duy' },
     contact: {
       phone: '0388804547',
@@ -70,7 +69,6 @@ function App() {
           date: 'Sep 2021 - Sep 2023'
         }
       }
-
     ],
     skills: {
       language: { vi: 'Tiếng Anh', en: 'English' },
@@ -175,19 +173,16 @@ function App() {
         tech: 'ReactJs'
       }
     }
-
   };
 
   return (
-    <div className="bg-gradient-to-r from-gray-700 via-gray-800 to-black min-h-screen flex items-center justify-center py-10">
-      <div className="bg-gradient-to-r from-gray-700 via-gray-800 to-black shadow-2xl w-full min-h-screen p-8 hover:shadow-2xl relative">
-
-        {/* Button chuyển ngôn ngữ kiểu gạt */}
-        <div className="fixed top-6 right-6 z-50 flex items-center scale-110 sm:scale-125">
-          <span className="text-white mr-3 text-lg font-semibold">
+    <div className="bg-gradient-to-r from-gray-900 via-black to-gray-900 min-h-screen text-white scroll-smooth">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Language Toggle Button */}
+        <div className="fixed top-24 right-6 z-50 flex items-center scale-100 sm:scale-110">
+          <span className="text-white mr-3 text-sm font-medium">
             {isEnglish ? 'English' : 'Tiếng Việt'}
           </span>
-
           <label htmlFor="language-toggle" className="inline-flex items-center cursor-pointer">
             <span className="sr-only">Toggle Language</span>
             <div className="relative">
@@ -198,28 +193,45 @@ function App() {
                 onChange={toggleLanguage}
                 className="hidden"
               />
-              <div className="toggle-container w-14 h-7 sm:w-16 sm:h-8 md:w-20 md:h-10 bg-gray-300 rounded-full shadow-inner"></div>
-
-              <div className="toggle-circle absolute top-1 left-1 w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-white rounded-full transition-all duration-300 ease-in-out">
-                <div
-                  className={`bg-primary rounded-full transition-all duration-300 ease-in-out transform w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 ${isEnglish ? 'translate-x-7 sm:translate-x-8 md:translate-x-10' : ''}`}
-                ></div>
-              </div>
+              <div className="toggle-container w-12 h-6 bg-gray-300 rounded-full shadow-inner"></div>
+              <div
+                className={`toggle-circle absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-all duration-300 ease-in-out ${isEnglish ? 'translate-x-6' : ''
+                  }`}
+              ></div>
             </div>
           </label>
-
         </div>
 
+        {/* Main Content */}
+        <Header avatar={myImage} name={profileData.name[isEnglish ? 'en' : 'vi']} contact={profileData.contact} isEnglish={isEnglish} />
 
-        <div className="p-8">
-          <Header avatar={myImage} name={profileData.name[isEnglish ? 'en' : 'vi']} contact={profileData.contact} isEnglish={isEnglish} />
+        <section id="objective" className="scroll-mt-20">
           <Objective objective={profileData.objective[isEnglish ? 'en' : 'vi']} isEnglish={isEnglish} />
+        </section>
+
+        <section id="education" className="scroll-mt-20">
           <Education education={profileData.education} isEnglish={isEnglish} />
-          <Experience experience={profileData.experience} zurichTeam={profileData.zurichTeam} manulifeTeam={profileData.manulifeTeam} isEnglish={isEnglish} />
+        </section>
+
+        <section id="experience" className="scroll-mt-20">
+          <Experience
+            experience={profileData.experience}
+            zurichTeam={profileData.zurichTeam}
+            manulifeTeam={profileData.manulifeTeam}
+            isEnglish={isEnglish}
+          />
+        </section>
+
+        <section id="skills" className="scroll-mt-20">
           <Skills skills={profileData.skills} isEnglish={isEnglish} />
+        </section>
+
+        <section id="projects" className="scroll-mt-20">
           <Projects projects={profileData.projects} isEnglish={isEnglish} />
-        </div>
+        </section>
       </div>
+      {/* Thêm Footer */}
+      <Footer isEnglish={isEnglish} />
     </div>
   );
 }
