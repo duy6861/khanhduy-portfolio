@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 
 const Header = ({ avatar, name, contact, isEnglish }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('top');
+  const isScrollingRef = useRef(false); // Ref để theo dõi trạng thái scroll
 
   // Danh sách section
   const sections = useMemo(
@@ -21,12 +22,21 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
     const element = document.getElementById(id);
     if (element) {
       const offsetTop = element.offsetTop;
-      const headerHeight = 80; // Chiều cao của header (nav + padding)
+      const headerHeight = 80;
+
+      // Set active section ngay lập tức
+      setActiveSection(id);
+      isScrollingRef.current = true; // Đánh dấu đang scroll do click
+
       window.scrollTo({
         top: offsetTop - headerHeight,
         behavior: 'smooth',
       });
-      setActiveSection(id);
+
+      // Reset flag sau khi scroll xong
+      setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 1000); // Thời gian đủ cho animation scroll hoàn tất
     }
     setIsMenuOpen(false);
   };
@@ -34,7 +44,10 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
   // Theo dõi scroll để highlight menu
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 80; // + header height
+      // Nếu đang scroll do click thì bỏ qua
+      if (isScrollingRef.current) return;
+
+      const scrollPosition = window.scrollY + 80;
 
       let currentSection = 'top';
 
@@ -45,7 +58,6 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
           const offsetHeight = element.offsetHeight;
           const bottom = offsetTop + offsetHeight;
 
-          // Nếu scroll đang trong section này
           if (scrollPosition >= offsetTop && scrollPosition < bottom) {
             currentSection = item.id;
             break;
@@ -53,7 +65,6 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
         }
       }
 
-      // Cập nhật nếu khác
       if (currentSection !== activeSection) {
         setActiveSection(currentSection);
       }
@@ -61,7 +72,7 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [sections, activeSection]); // Đảm bảo không loop
+  }, [sections, activeSection]);
 
   return (
     <header className="w-full">
