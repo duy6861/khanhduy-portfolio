@@ -105,13 +105,27 @@ function App() {
         },
         en: {
           name: 'Employee information management website',
-          tech: 'Angular framework',
+          tech: 'Angular framework ...',
           link: 'https://proect-1463.web.app/',
           description: 'login/registration page, employee information panel, add/delete/edit employee information'
         }
       },
       {
-        vi: { name: 'Trang web bán quần áo', tech: 'React', link: 'https://clothes-web-duy.vercel.app/' },
+        vi: {
+          name: 'Sàn giáo dục thương mại điện tử',
+          tech: 'React, Redux, Firebase ...',
+          link: 'https://edumart-git-use-redux-toolkit-duys-projects-f4eed92b.vercel.app/',
+          description: 'Trang đăng nhập/đăng ký, bảng hiện thị thông tin các khóa học, Tìm kiếm Sản phẩm, danh sách yêu thích, lọc theo giá, chát bot, lịch sử xem ....'
+        },
+        en: {
+          name: 'E-commerce Education Platform',
+          tech: 'React, Redux, Firebase ...',
+          link: 'https://edumart-git-use-redux-toolkit-duys-projects-f4eed92b.vercel.app/',
+          description: 'Login/registration page, course information dashboard, product search, wishlist, price filtering, chatbot, viewing history, and more.'
+        }
+      },
+      {
+        vi: { name: 'Trang web bán quần áo', tech: 'React ...', link: 'https://clothes-web-duy.vercel.app/' },
         en: { name: 'Clothing website', tech: 'React', link: 'https://clothes-web-duy.vercel.app/' }
       },
       {
