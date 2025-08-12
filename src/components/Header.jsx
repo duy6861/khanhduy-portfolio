@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from "react";
 
 const Header = ({ avatar, name, contact, isEnglish }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('top');
+  const [activeSection, setActiveSection] = useState("top");
   const isScrollingRef = useRef(false);
   const menuRef = useRef(null);
   const toggleButtonRef = useRef(null);
@@ -10,11 +10,11 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
   // Danh sách section
   const sections = useMemo(
     () => [
-      { label: isEnglish ? 'Objective' : 'Mục tiêu', id: 'objective' },
-      { label: isEnglish ? 'Education' : 'Học vấn', id: 'education' },
-      { label: isEnglish ? 'Experience' : 'Kinh nghiệm', id: 'experience' },
-      { label: isEnglish ? 'Skills' : 'Kỹ năng', id: 'skills' },
-      { label: isEnglish ? 'Projects' : 'Dự án', id: 'projects' },
+      { label: isEnglish ? "Objective" : "Mục tiêu", id: "objective" },
+      { label: isEnglish ? "Education" : "Học vấn", id: "education" },
+      { label: isEnglish ? "Experience" : "Kinh nghiệm", id: "experience" },
+      { label: isEnglish ? "Skills" : "Kỹ năng", id: "skills" },
+      { label: isEnglish ? "Projects" : "Dự án", id: "projects" },
     ],
     [isEnglish]
   );
@@ -23,19 +23,21 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       // Không đóng nếu click vào toggle button hoặc menu
-      if (toggleButtonRef.current?.contains(event.target) ||
-        menuRef.current?.contains(event.target)) {
+      if (
+        toggleButtonRef.current?.contains(event.target) ||
+        menuRef.current?.contains(event.target)
+      ) {
         return;
       }
       setIsMenuOpen(false);
     };
 
     if (isMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isMenuOpen]);
 
@@ -51,7 +53,7 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
 
       window.scrollTo({
         top: offsetTop - headerHeight,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
 
       setTimeout(() => {
@@ -68,7 +70,7 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
 
       const scrollPosition = window.scrollY + 70;
 
-      let currentSection = 'top';
+      let currentSection = "top";
 
       for (let item of sections) {
         const element = document.getElementById(item.id);
@@ -89,8 +91,8 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [sections, activeSection]);
 
   // Toggle menu function
@@ -104,11 +106,19 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
       <nav className="fixed top-0 left-0 right-0 h-16 md:h-20 bg-black/70 backdrop-blur-xl z-50 shadow-lg border-b border-gray-700/50 transition-all duration-300 flex items-center">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            <div
+            {/* <div
               onClick={() => scrollToSection('top')}
               className="text-lg md:text-xl font-bold text-white cursor-pointer hover:text-blue-400 transition-colors duration-300"
             >
               {isEnglish ? 'My Resume' : 'Hồ sơ của tôi'}
+            </div> */}
+            <div
+              onClick={() => scrollToSection("top")}
+              className="relative text-lg md:text-xl font-bold text-white cursor-pointer transition-all duration-300 ease-in-out hover:text-blue-400 group">
+              {isEnglish ? "My Resume" : "Hồ sơ của tôi"}
+
+              {/* Hiệu ứng underline khi hover */}
+              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
             </div>
 
             {/* Desktop Menu */}
@@ -119,8 +129,8 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
                   onClick={() => scrollToSection(item.id)}
                   className={`px-3 py-1.5 text-sm font-medium rounded-md capitalize transition-all duration-300
                     ${activeSection === item.id
-                      ? 'bg-blue-600 text-white shadow-md'
-                      : 'text-gray-300 hover:text-blue-400 hover:bg-white/10'
+                      ? "bg-blue-600 text-white shadow-md"
+                      : "text-gray-300 hover:text-blue-400 hover:bg-white/10"
                     }`}
                 >
                   {item.label}
@@ -130,19 +140,30 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
 
             {/* Mobile Toggle */}
             <div className="md:hidden flex items-center space-x-3">
-              <span className="text-xs md:text-sm font-medium text-white">{isEnglish ? 'EN' : 'VI'}</span>
+              <span className="text-xs md:text-sm font-medium text-white">
+                {isEnglish ? "EN" : "VI"}
+              </span>
               <button
                 ref={toggleButtonRef}
                 onClick={toggleMenu}
                 className="text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full p-1"
                 aria-label="Toggle menu"
               >
-                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-5 h-5 md:w-6 md:h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                    d={
+                      isMenuOpen
+                        ? "M6 18L18 6M6 6l12 12"
+                        : "M4 6h16M4 12h16M4 18h16"
+                    }
                   />
                 </svg>
               </button>
@@ -162,8 +183,8 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
                     onClick={() => scrollToSection(item.id)}
                     className={`block w-full text-left px-4 py-3 text-sm capitalize transition-all duration-300
                       ${activeSection === item.id
-                        ? 'bg-blue-600 text-white font-medium'
-                        : 'text-gray-300 hover:text-blue-400 hover:bg-white/10'
+                        ? "bg-blue-600 text-white font-medium"
+                        : "text-gray-300 hover:text-blue-400 hover:bg-white/10"
                       }`}
                   >
                     {item.label}
@@ -176,7 +197,10 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
       </nav>
 
       {/* Profile Section */}
-      <div id="top" className="flex flex-col items-center mb-8 md:mb-10 pt-20 md:pt-28 px-4">
+      <div
+        id="top"
+        className="flex flex-col items-center mb-8 md:mb-10 pt-20 md:pt-28 px-4"
+      >
         {/* Avatar */}
         <div className="relative group mb-4">
           <img
@@ -186,13 +210,19 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
           />
         </div>
 
-        <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 text-center">{name}</h1>
+        <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 text-center">
+          {name}
+        </h1>
 
         {/* Contact Info */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 text-gray-300 mb-1 text-sm md:text-base text-center w-1/2 max-w-4xl">
           <ContactItem
             icon={
-              <svg className="w-4 h-4 md:w-5 md:h-5 opacity-90" fill="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-4 h-4 md:w-5 md:h-5 opacity-90"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
               </svg>
             }
@@ -202,7 +232,11 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
 
           <ContactItem
             icon={
-              <svg className="w-4 h-4 md:w-5 md:h-5 opacity-70" fill="currentColor" viewBox="0 0 20 20">
+              <svg
+                className="w-4 h-4 md:w-5 md:h-5 opacity-70"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
               </svg>
@@ -213,7 +247,11 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
 
           <ContactItem
             icon={
-              <svg className="w-4 h-4 md:w-5 md:h-5 opacity-90" fill="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-4 h-4 md:w-5 md:h-5 opacity-90"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
               </svg>
             }
@@ -224,8 +262,16 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
 
           <ContactItem
             icon={
-              <svg className="w-4 h-4 md:w-10 md:h-10 opacity-70" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+              <svg
+                className="w-4 h-4 md:w-10 md:h-10 opacity-70"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                  clipRule="evenodd"
+                />
               </svg>
             }
             label={isEnglish ? contact.address.en : contact.address.vi}
@@ -251,8 +297,8 @@ const ContactItem = ({ icon, href, label, external = false }) => {
     return (
       <a
         href={href}
-        target={external ? '_blank' : undefined}
-        rel={external ? 'noopener noreferrer' : undefined}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
         className="flex justify-center py-1"
       >
         {content}
