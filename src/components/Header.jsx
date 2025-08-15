@@ -106,12 +106,6 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
       <nav className="fixed top-0 left-0 right-0 h-16 md:h-20 bg-black/70 backdrop-blur-xl z-50 shadow-lg border-b border-gray-700/50 transition-all duration-300 flex items-center">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            {/* <div
-              onClick={() => scrollToSection('top')}
-              className="text-lg md:text-xl font-bold text-white cursor-pointer hover:text-blue-400 transition-colors duration-300"
-            >
-              {isEnglish ? 'My Resume' : 'Hồ sơ của tôi'}
-            </div> */}
             <div
               onClick={() => scrollToSection("top")}
               className="relative text-lg md:text-xl font-bold text-white cursor-pointer transition-all duration-300 ease-in-out hover:text-blue-400 group">

@@ -120,7 +120,7 @@ function App() {
         en: {
           name: 'E-commerce Education Platform',
           tech: 'React, Redux, Firebase ...',
-          link: 'https://edumart-git-use-redux-toolkit-duys-projects-f4eed92b.vercel.app/',
+          link: 'https://edumart-henna.vercel.app/',
           description: 'Login/registration page, course information dashboard, product search, wishlist, price filtering, chatbot, viewing history, and more.'
         }
       },
