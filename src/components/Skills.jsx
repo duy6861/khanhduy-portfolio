@@ -99,8 +99,8 @@ const Skills = ({ skills, isEnglish }) => {
     <motion.div
       key={isEnglish ? "skills-en" : "skills-vi"}  // 🔑 ép remount khi đổi ngôn ngữ
       initial="hidden"
-      // animate="visible"
-      whileInView="visible"                             // ✅ dùng animate thay vì whileInView
+      // // animate="visible"
+      whileInView="visible"
       variants={containerVariants}
       className="mb-12"
     >
