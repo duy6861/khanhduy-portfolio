@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
-
+import { motion } from "framer-motion"; // eslint-disable-line no-unused-vars
 const Header = ({ avatar, name, contact, isEnglish }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("top");
@@ -195,21 +195,37 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
         id="top"
         className="flex flex-col items-center mb-8 md:mb-10 pt-20 md:pt-28 px-4"
       >
-        {/* Avatar */}
-        <div className="relative group mb-4">
+        {/* Avatar với animation */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="relative group mb-4"
+        >
           <img
             src={avatar}
             alt="Avatar"
             className="rounded-full w-32 h-32 md:w-40 md:h-40 object-cover border-4 border-white shadow-2xl transition-transform duration-500 group-hover:scale-105"
           />
-        </div>
+        </motion.div>
 
-        <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 text-center">
+        {/* Tên với animation */}
+        <motion.h1
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="text-3xl md:text-5xl font-bold text-white mb-2 text-center"
+        >
           {name}
-        </h1>
+        </motion.h1>
 
-        {/* Contact Info */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 text-gray-300 mb-1 text-sm md:text-base text-center w-1/2 max-w-4xl">
+        {/* Contact Info với stagger animation */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 text-gray-300 mb-1 text-sm md:text-base text-center w-1/2 max-w-4xl"
+        >
           <ContactItem
             icon={
               <svg
@@ -223,7 +239,6 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
             href={`tel:${contact.phone}`}
             label={contact.phone}
           />
-
           <ContactItem
             icon={
               <svg
@@ -238,7 +253,6 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
             href={`mailto:${contact.email}`}
             label={contact.email}
           />
-
           <ContactItem
             icon={
               <svg
@@ -253,7 +267,6 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
             label="LinkedIn"
             external
           />
-
           <ContactItem
             icon={
               <svg
@@ -270,9 +283,14 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
             }
             label={isEnglish ? contact.address.en : contact.address.vi}
           />
-        </div>
-
-        <div className="w-4/5 md:w-3/5 border-t border-gray-600 my-6"></div>
+        </motion.div>
+        {/* Line phân cách với animation */}
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "80%" }}
+          transition={{ delay: 0.7, duration: 0.8, ease: "easeInOut" }}
+          className="max-w-4xl border-t border-gray-600 my-6"
+        />
       </div>
     </header>
   );
