@@ -32,7 +32,6 @@ const Skills = ({ skills, isEnglish }) => {
     },
   };
 
-  // Component cho Language Skill Item với text
   const LanguageSkillItem = ({ language, proficiency }) => (
     <motion.div
       variants={itemVariants}
@@ -45,7 +44,6 @@ const Skills = ({ skills, isEnglish }) => {
     </motion.div>
   );
 
-  // Component cho Skill Tag với hiệu ứng
   const SkillTag = ({ children, className = '' }) => (
     <motion.span
       variants={tagVariants}
@@ -60,18 +58,17 @@ const Skills = ({ skills, isEnglish }) => {
         damping: 25
       }}
       className={`
-      inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium
-      bg-gradient-to-r from-blue-600 to-purple-600 text-white
-      shadow-lg
-      cursor-pointer
-      ${className}
-    `}
+        inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium
+        bg-gradient-to-r from-blue-600 to-purple-600 text-white
+        shadow-lg
+        cursor-pointer
+        ${className}
+      `}
     >
       {children}
     </motion.span>
   );
 
-  // Component cho Skill Category với card design
   const SkillCategory = ({ title, children, icon }) => (
     <motion.div
       variants={itemVariants}
@@ -97,18 +94,22 @@ const Skills = ({ skills, isEnglish }) => {
       </div>
     </motion.div>
   );
+
   return (
     <motion.div
+      key={isEnglish ? "skills-en" : "skills-vi"}  // 🔑 ép remount khi đổi ngôn ngữ
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      // animate="visible"
+      whileInView="visible"                             // ✅ dùng animate thay vì whileInView
       variants={containerVariants}
       className="mb-12"
     >
-      <h2 className="
-        text-3xl font-bold text-white mb-8 pb-3 
-        relative border-b-2 border-gray-500
-      ">
+      <h2
+        className="
+          text-3xl font-bold text-white mb-8 pb-3 
+          relative border-b-2 border-gray-500
+        "
+      >
         {isEnglish ? 'Skills' : 'Kỹ năng'}
       </h2>
 
@@ -118,9 +119,9 @@ const Skills = ({ skills, isEnglish }) => {
           title={isEnglish ? "Language Skills" : "Kỹ năng ngôn ngữ"}
           icon="🗣️"
         >
-          {skills.languageSkills.map((item, index) => (
+          {skills.languageSkills.map((item) => (
             <LanguageSkillItem
-              key={index}
+              key={isEnglish ? item.name.en : item.name.vi}
               language={isEnglish ? item.name.en : item.name.vi}
               proficiency={isEnglish ? item.proficiency.en : item.proficiency.vi}
             />
@@ -133,8 +134,8 @@ const Skills = ({ skills, isEnglish }) => {
           icon="💻"
         >
           <motion.div variants={containerVariants} className="flex flex-wrap gap-2">
-            {skills.programmingLanguages.map((item, index) => (
-              <SkillTag key={index}>{item}</SkillTag>
+            {skills.programmingLanguages.map((item) => (
+              <SkillTag key={item}>{item}</SkillTag>
             ))}
           </motion.div>
         </SkillCategory>
@@ -145,8 +146,8 @@ const Skills = ({ skills, isEnglish }) => {
           icon="🔧"
         >
           <motion.div variants={containerVariants} className="flex flex-wrap gap-2">
-            {skills.frameworksAndLibraries.map((item, index) => (
-              <SkillTag key={index}>{item}</SkillTag>
+            {skills.frameworksAndLibraries.map((item) => (
+              <SkillTag key={item}>{item}</SkillTag>
             ))}
           </motion.div>
         </SkillCategory>
@@ -157,8 +158,8 @@ const Skills = ({ skills, isEnglish }) => {
           icon="🔄"
         >
           <motion.div variants={containerVariants} className="flex flex-wrap gap-2">
-            {skills.stateManagementTools.map((item, index) => (
-              <SkillTag key={index}>{item}</SkillTag>
+            {skills.stateManagementTools.map((item) => (
+              <SkillTag key={item}>{item}</SkillTag>
             ))}
           </motion.div>
         </SkillCategory>
@@ -169,8 +170,8 @@ const Skills = ({ skills, isEnglish }) => {
           icon="🎨"
         >
           <motion.div variants={containerVariants} className="flex flex-wrap gap-2">
-            {skills.uiFrameworksAndStylingTools.map((item, index) => (
-              <SkillTag key={index}>{item}</SkillTag>
+            {skills.uiFrameworksAndStylingTools.map((item) => (
+              <SkillTag key={item}>{item}</SkillTag>
             ))}
           </motion.div>
         </SkillCategory>
@@ -181,8 +182,8 @@ const Skills = ({ skills, isEnglish }) => {
           icon="⚙️"
         >
           <motion.div variants={containerVariants} className="flex flex-wrap gap-2">
-            {skills.backendTechnologies.map((item, index) => (
-              <SkillTag key={index}>{item}</SkillTag>
+            {skills.backendTechnologies.map((item) => (
+              <SkillTag key={item}>{item}</SkillTag>
             ))}
           </motion.div>
         </SkillCategory>
@@ -193,8 +194,8 @@ const Skills = ({ skills, isEnglish }) => {
           icon="🔌"
         >
           <motion.div variants={containerVariants} className="flex flex-wrap gap-2">
-            {skills.apiAndDataHandlingTools.map((item, index) => (
-              <SkillTag key={index}>{item}</SkillTag>
+            {skills.apiAndDataHandlingTools.map((item) => (
+              <SkillTag key={item}>{item}</SkillTag>
             ))}
           </motion.div>
         </SkillCategory>
@@ -205,8 +206,8 @@ const Skills = ({ skills, isEnglish }) => {
           icon="🔄"
         >
           <motion.div variants={containerVariants} className="flex flex-wrap gap-2">
-            {skills.versionControlTools.map((item, index) => (
-              <SkillTag key={index}>{item}</SkillTag>
+            {skills.versionControlTools.map((item) => (
+              <SkillTag key={item}>{item}</SkillTag>
             ))}
           </motion.div>
         </SkillCategory>
@@ -217,8 +218,8 @@ const Skills = ({ skills, isEnglish }) => {
           icon="🧪"
         >
           <motion.div variants={containerVariants} className="flex flex-wrap gap-2">
-            {skills.testingAndDebuggingTools.map((item, index) => (
-              <SkillTag key={index}>{item}</SkillTag>
+            {skills.testingAndDebuggingTools.map((item) => (
+              <SkillTag key={item}>{item}</SkillTag>
             ))}
           </motion.div>
         </SkillCategory>
@@ -229,8 +230,8 @@ const Skills = ({ skills, isEnglish }) => {
           icon="👥"
         >
           <motion.div variants={containerVariants} className="flex flex-wrap gap-2">
-            {skills.softSkillsList.map((item, index) => (
-              <SkillTag key={index}>{item}</SkillTag>
+            {skills.softSkillsList.map((item) => (
+              <SkillTag key={item}>{item}</SkillTag>
             ))}
           </motion.div>
         </SkillCategory>
