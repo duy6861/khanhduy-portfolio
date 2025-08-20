@@ -195,11 +195,17 @@ const Header = ({ avatar, name, contact, isEnglish }) => {
         id="top"
         className="flex flex-col items-center mb-8 md:mb-10 pt-20 md:pt-28 px-4"
       >
-        {/* Avatar với animation */}
+        {/* Avatar với animation mượt */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{
+            type: "spring",
+            stiffness: 150,
+            damping: 20,
+            delay: 0.5,
+          }}
+          style={{ transformOrigin: "center" }}
           className="relative group mb-4"
         >
           <img
