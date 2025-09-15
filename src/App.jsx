@@ -105,9 +105,9 @@ function App() {
         },
         en: {
           name: 'Employee information management website',
-          tech: 'Angular framework ...',
+          tech: 'Angular framework',
           link: 'https://proect-1463.web.app/',
-          description: 'login/registration page, employee information panel, add/delete/edit employee information'
+          description: 'Login/registration page, employee information panel, add/delete/edit employee information'
         }
       },
       {
@@ -147,9 +147,19 @@ function App() {
         teamSize: 'khoảng 50 người',
         position: 'Frontend developer',
         responsibility: [
+          // 👇 GIỮ NGUYÊN PHẦN CŨ
           'Sửa lỗi và tối ưu hóa UI & các tính năng trên trang web. Xác định, khắc phục sự cố và giải quyết các vấn đề UI/UX để đảm bảo trải nghiệm người dùng liền mạch.',
           'Phát triển và triển khai UI dựa trên các thiết kế được giao. Chuyển đổi các thiết kế từ Figma, Adobe XD hoặc các công cụ thiết kế khác thành giao diện web tương tác và thân thiện với người dùng. Cộng tác chặt chẽ với các nhà thiết kế và nhà phát triển backend để duy trì tính nhất quán về thiết kế và chức năng.',
-          'Hỗ trợ kiểm tra và đảm bảo chất lượng sản phẩm. Làm việc với người kiểm tra (nhóm QA) để xác định và giải quyết các vấn đề trước khi triển khai.'
+          'Hỗ trợ kiểm tra và đảm bảo chất lượng sản phẩm. Làm việc với người kiểm tra (nhóm QA) để xác định và giải quyết các vấn đề trước khi triển khai.',
+
+          // 👇 THÊM PHẦN MỚI VÀO CUỐI
+          'Xây dựng giao diện workflow đa bước: Phát triển 6 trang chức năng: ToleranceCheckPage, ProductDetailsPage, CategoriesPage, ApplyPage, MembersPage, MemberLTAPage. Quản lý điều hướng có điều kiện, cảnh báo khi rời trang chưa lưu, và điều khiển luồng nghiệp vụ (tiếp tục, quay lại, lưu & thoát).',
+          'Xử lý form và validation phức tạp: Triển khai hệ thống validation nhiều tầng cho các quy tắc nghiệp vụ bảo hiểm (kiểm tra tolerance, % chênh lệch, số lượng thành viên, định dạng ngày/tháng, mã nghề nghiệp...). Tự động định dạng dữ liệu (postcodes, %, ngày sinh), hiển thị lỗi inline và tổng hợp lỗi. Xử lý edge case: focus tự động, disable/enable nút, cảnh báo khi thay đổi loại chính sách.',
+          'Tích hợp upload/download file Excel: Cho phép người dùng upload file Excel → chuyển sang base64 → gọi API → validate từng dòng → hiển thị lỗi chi tiết. Hỗ trợ download template và xuất dữ liệu hiện tại ra file. Xử lý dataset lớn (1000+ dòng) với phân trang, lọc, sắp xếp phía client.',
+          'Quản lý state và tích hợp API: Sử dụng Redux để quản lý state toàn cục: quote, categories, members, loading status. Gọi API bất đồng bộ (async/await) với xử lý lỗi, loading state, và race condition (dùng cờ isMounted). Tự động lock/unlock quote khi vào/ra trang để tránh xung đột dữ liệu.',
+          'Thành phần động và tái sử dụng: Xây dựng hệ thống tab động (CategoryTabs) cho phép thêm/xóa/sửa danh mục, kèm validation riêng cho từng tab. Tạo modal confirm tùy chỉnh cho các hành động quan trọng: Accept Tolerance, Push to Rate Review, Take Off Portal. Dùng useRef, useEffect, useCallback để tối ưu hiệu suất và quản lý side effect.',
+          'Tối ưu trải nghiệm người dùng (UX): Tự động focus vào trường cần nhập sau khi thêm/xóa. Phân trang, lọc, sắp xếp bảng dữ liệu lớn. Hiển thị skeleton, loading spinner, và thông báo lỗi thân thiện. Tích hợp Tealium để theo dõi hành vi người dùng (số lượng danh mục, thao tác eligibility...).',
+          'Kiến thức chuyên sâu về nghiệp vụ bảo hiểm: Hiểu rõ các loại sản phẩm: Group Life (GL), Group Income Protection (GIP), Registered/Excepted Trust. Xử lý logic nghiệp vụ: tolerance breach, calculation method (salary multiplier vs fixed benefit), eligibility criteria, occupation code check. Đảm bảo tuân thủ quy định: không cho phép lưu nếu dữ liệu không hợp lệ, cảnh báo khi có rủi ro (occupation code 7).'
         ],
         tech: 'ReactJs, Sitecore'
       },
@@ -158,9 +168,19 @@ function App() {
         teamSize: 'around 50 or so',
         position: 'Frontend developer',
         responsibility: [
+          // 👇 GIỮ NGUYÊN PHẦN CŨ
           'Fix errors and optimize UI & features on the website. Identify, troubleshoot, and resolve UI/UX issues to ensure a seamless user experience.',
           'Develop and implement UI based on assigned designs. Convert designs from Figma, Adobe XD, or other design tools into interactive and user-friendly web interfaces. Collaborate closely with designers and backend developers to maintain design and functionality consistency.',
-          'Support testing and ensure product quality. Work with testers (QA team) to identify and resolve issues before deployment.'
+          'Support testing and ensure product quality. Work with testers (QA team) to identify and resolve issues before deployment.',
+
+          // 👇 THÊM PHẦN MỚI VÀO CUỐI
+          'Built multi-step workflow interfaces: Developed 6 functional pages — ToleranceCheckPage, ProductDetailsPage, CategoriesPage, ApplyPage, MembersPage, MemberLTAPage. Implemented conditional navigation, unsaved change warnings, and business flow controls (continue, back, save & exit).',
+          'Handled complex form validation: Deployed multi-layer validation logic for insurance business rules (tolerance checks, percentage variance, member count, date/month formatting, occupation codes, etc.). Automated data formatting (postcodes, percentages, birth dates), displayed inline and aggregated errors. Managed edge cases: auto-focus, dynamic button enable/disable, and policy type change alerts.',
+          'Integrated Excel file upload/download: Enabled users to upload Excel files → convert to base64 → call API → validate row-by-row → display detailed errors. Supported template downloads and exporting current data to files. Handled large datasets (1,000+ rows) with client-side pagination, filtering, and sorting.',
+          'Managed state and integrated APIs: Used Redux to manage global state (quote, categories, members, loading status). Called asynchronous APIs (async/await) with error handling, loading states, and race condition mitigation (using isMounted flags). Automatically locked/unlocked quotes on page entry/exit to prevent data conflicts.',
+          'Designed dynamic and reusable components: Built dynamic CategoryTabs allowing add/edit/delete categories with per-tab validation. Created custom modal confirmations for critical actions: Accept Tolerance, Push to Rate Review, Take Off Portal. Optimized performance and managed side effects using useRef, useEffect, and useCallback.',
+          'Enhanced user experience (UX): Auto-focused input fields after adding/deleting items. Implemented pagination, filtering, and sorting for large data tables. Displayed skeleton loaders, spinners, and user-friendly error messages. Integrated Tealium to track user behavior (number of categories, eligibility actions, etc.).',
+          'Deep insurance domain knowledge: Understood key products: Group Life (GL), Group Income Protection (GIP), Registered/Excepted Trust. Implemented business logic: tolerance breach detection, calculation methods (salary multiplier vs. fixed benefit), eligibility criteria, and occupation code validation. Ensured regulatory compliance: blocked saves on invalid data and issued warnings for high-risk occupation codes (e.g., code 7).'
         ],
         tech: 'ReactJs, Sitecore'
       }
