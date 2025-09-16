@@ -239,15 +239,15 @@ function App() {
         {/* Main Content */}
         <Header avatar={myImage} name={profileData.name[isEnglish ? 'en' : 'vi']} contact={profileData.contact} isEnglish={isEnglish} />
 
-        <section id="objective" className="scroll-mt-20">
+        <section id="objective" className="pt-4">
           <Objective objective={profileData.objective[isEnglish ? 'en' : 'vi']} isEnglish={isEnglish} />
         </section>
 
-        <section id="education" className="scroll-mt-20">
+        <section id="education" className="pt-4">
           <Education education={profileData.education} isEnglish={isEnglish} />
         </section>
 
-        <section id="experience" className="scroll-mt-20">
+        <section id="experience" className="pt-4">
           <Experience
             experience={profileData.experience}
             zurichTeam={profileData.zurichTeam}
@@ -256,11 +256,11 @@ function App() {
           />
         </section>
 
-        <section id="skills" className="scroll-mt-20">
+        <section id="skills" className="pt-4">
           <Skills skills={profileData.skills} isEnglish={isEnglish} />
         </section>
 
-        <section id="projects" className="scroll-mt-20">
+        <section id="projects" className="pt-4">
           <Projects projects={profileData.projects} isEnglish={isEnglish} />
         </section>
       </div>
